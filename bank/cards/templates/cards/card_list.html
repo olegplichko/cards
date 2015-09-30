@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Snippets</h1>
+<ul>
+{% for snippet in object_list %}
+    <li>{{ snippet.name }} <a href="/parts/{{ snippet.pk }}">edit</a></li>
+{% empty %}
+    <li>No snippets yet.</li>
+{% endfor %}
+</ul>
+{% endblock %}

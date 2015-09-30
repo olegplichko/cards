@@ -32,8 +32,8 @@ class Card(models.Model):
     """
     serial = models.ForeignKey(CardSerial)
     number = models.UUIDField(max_length=14, default=uuid.uuid4, editable=False)
-    start_date = models.DateTimeField(auto_created=True, editable=False)
-    expiration_date = models.DateTimeField(editable=False)
+    start_date = models.DateTimeField(auto_now_add=True)
+    expiration_date = models.DateTimeField()
     last_used_date = models.DateTimeField(blank=True, editable=False)
     balance = models.IntegerField(blank=True, default=0)
     status = models.CharField(max_length=2, choices=CARD_STATUSES, default=INACTIVE_CARD_STATUS)
